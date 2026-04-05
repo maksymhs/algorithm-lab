@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithm Lab — Maksym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1117;
+      color: #60d0a0;
+      font-family: 'Press Start 2P', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      color: #60d0a0;
+      border: 1px solid #60d0a040;
+      padding: 4px 12px;
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(18px, 4vw, 32px);
+      color: #60d0a0;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #60d0a060;
+    }
+
+    .subtitle {
+      font-size: clamp(8px, 1.5vw, 11px);
+      color: #60d0a080;
+      line-height: 2;
+      margin-bottom: 3rem;
+    }
+
+    /* Animated algo visualization */
+    .visual {
+      margin: 2rem auto;
+      width: 320px;
+      height: 100px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .bar {
+      flex: 1;
+      background: #60d0a0;
+      border-radius: 2px 2px 0 0;
+      animation: sort 3s ease-in-out infinite;
+      max-width: 20px;
+    }
+
+    .bar:nth-child(1)  { height: 30%;  animation-delay: 0.0s; }
+    .bar:nth-child(2)  { height: 80%;  animation-delay: 0.1s; }
+    .bar:nth-child(3)  { height: 45%;  animation-delay: 0.2s; }
+    .bar:nth-child(4)  { height: 95%;  animation-delay: 0.3s; }
+    .bar:nth-child(5)  { height: 20%;  animation-delay: 0.4s; }
+    .bar:nth-child(6)  { height: 65%;  animation-delay: 0.5s; }
+    .bar:nth-child(7)  { height: 50%;  animation-delay: 0.6s; }
+    .bar:nth-child(8)  { height: 75%;  animation-delay: 0.7s; }
+    .bar:nth-child(9)  { height: 35%;  animation-delay: 0.8s; }
+    .bar:nth-child(10) { height: 88%;  animation-delay: 0.9s; }
+    .bar:nth-child(11) { height: 15%;  animation-delay: 1.0s; }
+    .bar:nth-child(12) { height: 60%;  animation-delay: 1.1s; }
+
+    @keyframes sort {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 1;   }
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 9px;
+      color: #60d0a0;
+      margin-bottom: 2.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #60d0a0;
+      animation: blink 1.2s step-start infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .tag {
+      font-size: 7px;
+      padding: 6px 12px;
+      border: 1px solid #60d0a030;
+      color: #60d0a060;
+      letter-spacing: 1px;
+    }
+
+    .back {
+      font-size: 8px;
+      color: #60d0a050;
+      text-decoration: none;
+      border-bottom: 1px solid #60d0a030;
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .back:hover { color: #60d0a0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge">ALGO.MAKSYM.SITE</div>
+
+    <h1>Algorithm Lab</h1>
+
+    <p class="subtitle">
+      Visual patterns for solving problems.<br />
+      Sliding window · Two pointers · BFS/DFS<br />
+      Dynamic programming · Backtracking · and more.
+    </p>
+
+    <div class="visual">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+
+    <div class="status">
+      <div class="dot"></div>
+      UNDER CONSTRUCTION
+    </div>
+
+    <div class="topics">
+      <span class="tag">ARRAYS</span>
+      <span class="tag">GRAPHS</span>
+      <span class="tag">TREES</span>
+      <span class="tag">DP</span>
+      <span class="tag">SORTING</span>
+      <span class="tag">BINARY SEARCH</span>
+      <span class="tag">HEAP</span>
+      <span class="tag">TRIE</span>
+    </div>
+
+    <a class="back" href="https://maksym.site">← maksym.site</a>
+  </div>
+</body>
+</html>
